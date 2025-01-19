@@ -24,8 +24,8 @@
 .sidebar h2 {
     font-size: 1.5rem;
     text-align: center;
-    margin: 0;
     padding: 1rem 0;
+    margin: auto;
 }
 
 .filter-form {
@@ -33,6 +33,7 @@
     flex-direction: column;
     gap: 2rem;
     flex: 1;
+    margin: auto;
 }
 
 .filter-categorySide {
@@ -40,7 +41,7 @@
     flex-direction: column;
     gap: 1rem;
     align-items: center;
-    margin-top: auto;
+    margin: auto;
 }
 
 .filter-categorySide label {
@@ -48,6 +49,7 @@
     font-weight: 600;
     color: #333;
     text-align: center;
+    margin: auto;
 }
 
 .filter-categorySide select {
@@ -65,11 +67,13 @@
     background-repeat: no-repeat;
     background-position: right 0.9375rem center;
     background-size: 1rem;
+    margin: auto;
 }
 
 .filter-categorySide select option {
     background-color: #fff;
     color: #333;
+    margin: auto;
 }
 
 
@@ -77,7 +81,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: auto;
+    margin: auto;
 }
 
 /* Range Input Styling */
@@ -118,7 +122,7 @@ input[type="range"]::-moz-range-thumb {
     transition: background-color 0.3s;
     align-self: center;
     width: 80%;
-    margin-top: auto;
+    margin: auto;
 }
 
 .submit-button:hover {
