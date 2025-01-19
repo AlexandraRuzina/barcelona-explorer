@@ -1,0 +1,12 @@
+.content {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1.25rem;
+    overflow-y: auto;
+    margin-top: 0;
+    position: relative;
+}
+

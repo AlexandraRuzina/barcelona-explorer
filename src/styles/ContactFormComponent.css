@@ -1,0 +1,13 @@
+.boxContactForm {
+    margin-top: 1.875rem;
+    margin-bottom: 2.5rem;
+    margin-right: 12vw;
+    width: 225%;
+    max-width: 62.5rem;
+    background-color: #F0DFD0;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5rem;
+}

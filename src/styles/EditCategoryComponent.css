@@ -1,0 +1,82 @@
+main {
+    padding: 2rem;
+    display: grid;
+    place-items: center;
+}
+
+main h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
+}
+
+.box {
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+    margin-left: -3.5rem;
+    width: 120%;
+    height: 40vh;
+    background-color: #F0DFD0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formUpdate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20%;
+    width: 100%;
+    padding: 1.5rem;
+}
+
+.labelCat {
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: block;
+    text-align: center;
+}
+
+.inputUpdate {
+    margin-left: 1vw;
+    font-family: "Playfair Display", serif;
+    width: 25vw;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+.inputUpdate:focus {
+    outline: none;
+    border-color: #F0DFD0;
+    box-shadow: 0 0 0 3px rgba(255, 178, 102, 0.2);
+}
+
+.button {
+    margin-left: 2vw;
+    margin-right: auto;
+    padding: 0.75rem 1.25rem;
+    font-size: 1.125rem;
+    background-color: #A5927F;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #957A6B;
+    transform: translateY(-1px);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+.extraKomponente{
+    font-weight: normal;
+}

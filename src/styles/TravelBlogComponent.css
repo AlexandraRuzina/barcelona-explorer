@@ -1,0 +1,178 @@
+.VisitTableMain {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Stellt sicher, dass der Footer am unteren Rand bleibt */
+}
+
+.VisitTableMain > div {
+    flex: 1; /* Füllt den verfügbaren Platz aus */
+}
+
+.abstandHeader {
+    margin-top: 3%;
+    margin-left: -25%;
+}
+
+/* Tabelle zentrieren und weniger breit machen */
+.VisitTable {
+    width: 100%;
+    margin-top: -5%;
+    margin-left: 2vw;
+    border-collapse: collapse;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+/* Überschrift der Tabelle */
+.VisitTable thead th {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #f0d9c9;
+    padding: 1rem;
+}
+
+/* Tabellenzeilen und Zellen */
+.VisitTable tbody tr {
+    border-bottom: 0.0625rem solid #eaeaea;
+}
+
+.VisitTable tbody td {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0.75rem;
+    vertical-align: middle;
+}
+
+.hackenbtn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.875rem;
+    height: 1.875rem;
+    background-color: #f0d9c9;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.hackenbtn:hover {
+    transform: scale(1.1);
+}
+
+/* Container für Tabelle und Formular */
+.table-form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20%;
+}
+
+/* Formular-Styling anpassen */
+.select-spot {
+    display: flex;
+    flex-direction: column;
+    margin-top: -5%;
+    margin-right: -55%;
+}
+
+.sightsDropdown select {
+    margin-left: 1.125rem;
+    width: 90%;
+    padding: 0.625rem;
+    font-size: 1rem;
+    font-family: "Playfair Display", serif;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.3125rem;
+    background-color: #A5927F;
+    color: white;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='24px' height='24px'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9375rem center;
+    background-size: 1rem;
+}
+
+.sightsDropdown select:focus {
+    outline: none;
+}
+
+/* Optionsliste anpassen */
+.sightsDropdown select option {
+    background-color: #fff;
+    color: #333;
+    padding: 0.5rem;
+}
+
+/* Container für Dropdown und Button */
+.sightsDropdown {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    position: relative;
+}
+
+/* Dropdown-Styling anpassen */
+.sightsDropdown select {
+    margin: 0;
+    padding: 0.625rem;
+    font-size: 1rem;
+    font-family: "Playfair Display", serif;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.3125rem;
+    background-color: #A5927F;
+    color: white;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='24px' height='24px'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9375rem center;
+    background-size: 1rem;
+}
+
+/* Button direkt neben Dropdown */
+.sightsDropdown .check-button-travel {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.875rem;
+    height: 1.875rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #C6B3A3;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.sightsDropdown .check-button-travel:hover {
+    transform: scale(1.1);
+}
+
+/* Footer bleibt am unteren Rand */
+footer {
+    background-color: #fce5d8;
+    color: #5a4a3b;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    position: relative;
+}
+
+
+
+
+

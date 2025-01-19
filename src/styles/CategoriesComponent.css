@@ -1,0 +1,117 @@
+main {
+    padding: 2rem; /* Padding in rem für bessere Skalierbarkeit */
+    background-color: #f9f9f9;
+}
+
+main h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem; /* Schriftgröße in rem */
+    margin-bottom: 1.5rem; /* Abstand in rem */
+}
+
+/* Tabelle zentrieren */
+table {
+    width: 140%; /* Breite relativ zur Bildschirmbreite */
+    max-width: 60rem; /* Maximale Breite für größere Bildschirme */
+    margin-left: -20%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.625rem; /* Abrundung in rem */
+    overflow: hidden;
+    position: relative;
+}
+
+/* Tabellenkopf */
+thead {
+    background-color: #E8CFC1;
+    color: #333;
+    text-align: left;
+    font-weight: bold;
+}
+
+thead th {
+    padding: 1rem; /* Padding in rem */
+    text-transform: uppercase;
+    font-size: 1.125rem; /* Schriftgröße in rem */
+}
+
+/* Tabellenzeilen */
+tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Tabellenzellen */
+td {
+    padding: 1rem; /* Padding in rem */
+    font-size: 1rem; /* Schriftgröße in rem */
+    color: #333;
+    text-align: left;
+}
+
+/* Letzte Spalten für Edit/Delete Buttons */
+td:last-child, td:nth-last-child(2) {
+    text-align: center;
+}
+
+/* Button-Styling */
+.cat {
+    margin-right: 1rem; /* Abstand mit rem */
+    padding: 0.75rem 1rem; /* Padding in rem */
+    border: none;
+    border-radius: 0.5rem; /* Abrundung in rem */
+    background-color: #F0DFD0;
+    color: #333;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cat:hover {
+    background-color: #DCCCBF;
+    transform: translateY(-1px);
+}
+
+.cat:active {
+    transform: translateY(0);
+}
+
+
+.addNew {
+    margin-top: 2.5rem;
+    margin-left: 52%;
+    margin-right: 0;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #F0DFD0;
+    color: #333;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.addNew::before {
+    content: '✚';
+    margin-right: 0.25rem;
+}
+
+.addNew:hover {
+    background-color: #DCCCBF;
+    transform: translateY(-1px);
+}
+
+.addNew:active {
+    transform: translateY(0);
+}

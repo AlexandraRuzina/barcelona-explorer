@@ -1,0 +1,160 @@
+header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem; /* Padding bleibt in rem */
+    background-color: #ffe8cc;
+    border-bottom-right-radius: 4.375rem; /* Abrundung in rem (70px = 4.375rem) */
+    z-index: 1000; /* Stellt sicher, dass der Header oben bleibt */
+}
+
+#toggle-sidebar {
+    margin-right: 1rem; /* Abstand in rem */
+    padding: 0.1rem 0.5rem; /* Innenabstand in rem */
+    background-color: #ffe8cc;
+    color: #ff7a1f;
+    border: none;
+    border-radius: 0.5rem; /* Abrundung in rem */
+    cursor: pointer;
+    font-size: 1.5rem; /* Schriftgröße in rem */
+}
+
+header .logo {
+    width: 6.25rem; /* Breite (100px = 6.25rem) */
+    height: 6.25rem; /* Höhe (100px = 6.25rem) */
+    border-radius: 0.9375rem; /* Abrundung in rem (15px = 0.9375rem) */
+    margin-right: 1rem; /* Abstand in rem */
+}
+
+header h1 {
+    margin-top: 0;
+    font-size: 1.4375rem; /* Schriftgröße in rem (23px = 1.4375rem) */
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem; /* Innenabstand in rem */
+    margin-left: auto; /* Navigation wird nach rechts geschoben */
+    border-radius: 0.75rem; /* Abrundung in rem (12px = 0.75rem) */
+}
+
+.catBtn {
+    margin: 0.9vw;
+    padding: 0.95vw;
+    border: none;
+    border-radius: 0.5rem; /* Abrundung in rem */
+    background-color: #ff9248;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Abstand zwischen Icon und Text */
+}
+
+.catBtn:hover {
+    background-color: #ff7a1f;
+    transform: translateY(-0.0625rem); /* Leichte Verschiebung beim Hover */
+    box-shadow: 0 0.25rem 0.75rem rgba(255, 146, 72, 0.2); /* Schatten in rem */
+}
+
+.catBtn:active {
+    transform: translateY(0);
+}
+
+.search-form {
+    margin: 0.625rem; /* Abstand in rem */
+    display: flex;
+    align-items: center;
+    position: relative; /* Wichtig für das Positionieren des Buttons innerhalb des Inputs */
+}
+
+.search-form input {
+    padding: 0.75rem 1rem; /* Innenabstand in rem */
+    border: 0.125rem solid #ffd8a8; /* Rahmenbreite in rem */
+    border-radius: 0.5rem; /* Abrundung in rem */
+    background-color: white;
+    font-size: 0.95rem; /* Schriftgröße in rem */
+    width: 12.5rem; /* Breite in rem (180px = 12.5rem) */
+    transition: all 0.3s ease;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    padding-left: 2.5rem; /* Platz für das Lupensymbol */
+}
+
+.search-form input:focus {
+    outline: none;
+    border-color: #ffb266;
+    box-shadow: 0 0 0 0.1875rem rgba(255, 178, 102, 0.2); /* Schatten in rem */
+}
+
+.search-form button {
+    position: absolute; /* Positioniert den Button innerhalb des Inputs */
+    left: 0.75rem; /* Abstand vom linken Rand */
+    top: 50%; /* Vertikal zentriert */
+    transform: translateY(-50%); /* Korrektur der vertikalen Ausrichtung */
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1rem; /* Schriftgröße in rem */
+}
+
+.search-form button::before {
+    content: "\1F50D"; /* Unicode für das Lupensymbol */
+    font-size: 1rem; /* Schriftgröße in rem */
+}
+
+.login-button {
+    margin-left: 1.25rem; /* Abstand in rem */
+    padding: 0.75rem 1.5rem; /* Innenabstand in rem */
+    border: 0.125rem solid #ff9248; /* Rahmenbreite in rem */
+    border-radius: 0.5rem; /* Abrundung in rem */
+    background-color: transparent;
+    color: #ff9248;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #ff9248;
+    color: white;
+    transform: translateY(-0.0625rem); /* Leichte Verschiebung beim Hover */
+    box-shadow: 0 0.25rem 0.75rem rgba(255, 146, 72, 0.2); /* Schatten in rem */
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+.logout-icon {
+    display: inline-flex; /* Sorgt dafür, dass SVG korrekt angezeigt wird */
+    cursor: pointer; /* Mauszeiger ändert sich zu einer Hand */
+    transition: color 0.3s ease, transform 0.3s ease; /* Sanfter Übergang */
+}
+
+.logout-icon:hover {
+    transform: scale(1.2); /* Leichte Vergrößerung beim Hover */
+}
+
+svg {
+    width: 1.5rem; /* Breite in rem (24px = 1.5rem) */
+    height: 1.5rem; /* Höhe in rem */
+    stroke: #000000; /* Farbe der Linien */
+    stroke-width: 0.0625rem; /* Dicke der Linien in rem */
+    stroke-linecap: round; /* Form der Enden der Linien */
+    stroke-linejoin: miter; /* Form der Ecken */
+    fill: none; /* Füllung des SVG (keine Farbe) */
+}
+
+
+

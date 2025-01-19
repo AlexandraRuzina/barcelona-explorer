@@ -1,0 +1,84 @@
+.spot-details {
+    padding: 1.875rem;
+    display: grid;
+    place-items: center;
+}
+
+.details-container {
+    margin-top: 1.875rem;
+    margin-bottom: 2.5rem;
+    width: 250vw;
+    max-width: 62.5rem;
+    background-color: #F0DFD0;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    display: flex;
+    padding: 2.5rem;
+    gap: 4.6875rem;
+    place-items: center;
+}
+
+.attribute {
+    width: auto;
+    height: auto;
+    gap: 1.25rem;
+    font-size: 1.125rem;
+    color: #333333;
+    padding: 0.625rem 0.625rem 0.625rem 1.875rem;
+    margin-bottom: 1.25rem;
+    text-align: left;
+    background-color: #E8CFC1;
+    border-radius: 0.625rem;
+    box-shadow: inset 0 -0.0625rem 0.1875rem rgba(0, 0, 0, 0.1);
+}
+
+.attribute p {
+    display: flex;
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+}
+
+.labelSpot {
+    font-weight: bold;
+    margin-right: 1.25rem;
+}
+
+ul {
+    list-style-type: disc;
+    margin: 1.25rem 0;
+    padding-left: 1.25rem;
+    font-size: 0.9375rem;
+}
+
+.bildSpot {
+    width: 18.75rem;
+    height: 21.875rem;
+    border-radius: 0.625rem;
+    margin: 1.5625rem;
+    margin-bottom: 1.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.125rem solid #696969;
+}
+
+.crudButtons {
+    float: left;
+    margin-left: -1.25rem;
+}
+
+.details-image-map {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    flex: 0 0 18.75rem;
+}
+
+.google-maps iframe {
+    width: 250vw;
+    max-width: 62.5rem;
+    height: 18.75rem;
+    border: none;
+    border-radius: 0.625rem;
+}
+
+

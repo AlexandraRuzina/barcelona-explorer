@@ -1,0 +1,47 @@
+/* Allgemeine Stile */
+.notFound {
+    display: flex;
+    flex-direction: column; /* Inhalte untereinander anordnen */
+    justify-content: center; /* Zentriert den Inhalt vertikal */
+    align-items: center; /* Zentriert den Inhalt horizontal */
+    min-height: 70vh; /* Nimmt 70% der Viewport-Höhe ein */
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center; /* Zentriert den Text */
+}
+
+/* Überschrift */
+.notFound h1 {
+    font-size: 2.5rem; /* Schriftgröße in rem */
+    color: #957A6B;
+}
+
+/* Beschreibungstext */
+p {
+    font-size: 1.2rem; /* Schriftgröße in rem */
+}
+
+/* Rückkehr-Button */
+.ReturnBtn {
+    margin-top: 1.25rem; /* Abstand nach oben in rem (20px = 1.25rem) */
+    padding: 0.625rem 1.25rem; /* Innenabstand in rem (10px 20px = 0.625rem 1.25rem) */
+    font-size: 1.125rem; /* Schriftgröße in rem (18px = 1.125rem) */
+    background-color: #A5927F;
+    color: white;
+    border: none;
+    border-radius: 0.3125rem; /* Abrundung in rem (5px = 0.3125rem) */
+    cursor: pointer;
+}
+
+/* Hover-Effekt für den Button */
+.ReturnBtn:hover {
+    background-color: #957A6B;
+    transform: translateY(-0.0625rem); /* Verschiebung beim Hover in rem (1px = 0.0625rem) */
+}
+
+/* Aktiv-Zustand für den Button */
+.button:active {
+    transform: translateY(0);
+}
+
+

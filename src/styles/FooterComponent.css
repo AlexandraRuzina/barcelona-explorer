@@ -1,0 +1,26 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #ffe8cc;
+    border-top-left-radius: 4.375rem;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-section p {
+    text-decoration: underline;
+    color: #333333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+    margin: 0.5rem 1rem;
+}
+
+.footer-section p:active,
+.footer-section p:focus {
+    color: #222222;
+    outline: none;
+}
+
