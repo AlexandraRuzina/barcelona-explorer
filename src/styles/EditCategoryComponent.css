@@ -2,6 +2,7 @@ main {
     padding: 2rem;
     display: grid;
     place-items: center;
+    height: 100%;
 }
 
 main h1 {
@@ -88,4 +89,6 @@ footer {
     justify-content: space-between;
     padding: 1rem 2rem;
     position: relative;
+    width: 100%; /* Passt sich der Breite an */
+    flex-shrink: 0; /* Footer bleibt an seinem Platz, ohne sich zu verkleinern */
 }

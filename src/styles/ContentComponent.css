@@ -9,7 +9,7 @@
 }
 
 .bild {
-    width: 85%;
+    width: 80%;
     height: 60%;
     border-radius: 0.625rem;
     display: flex;
@@ -55,77 +55,9 @@
     box-shadow: inset 0 -1px 3px rgba(0, 0, 0, 0.1);
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1300px) {
     .tile {
-        height: 80vh;; /* Größere Höhe für größere Bildschirme */
-        width: 25vw;
-    }
-
-    .name {
-        font-size: 1.25rem; /* Größere Schriftgröße */
-        padding: 0.6rem; /* Mehr Padding */
-    }
-
-    .nameB {
-        font-size: 1.125rem; /* Größere Schriftgröße für zusätzliche Beschriftungen */
-        padding: 0.6rem;
-    }
-
-    .info {
-        font-size: 1.1rem; /* Größere Schriftgröße für Info */
-    }
-
-    .bild {
-        width: 90%; /* Größeres Bild innerhalb der Kachel */
-        height: auto; /* Dynamische Höhe für das Bild */
+        height: 60vh; /* Größere Höhe für größere Bildschirme */
     }
 }
 
-
-@media (max-width: 768px) {
-    .tile {
-        height: 60vh; /* Kleinere Höhe für Tablets */
-    }
-
-    .name {
-        font-size: 1rem;
-        padding: 0.4rem;
-    }
-
-    .nameB {
-        font-size: 0.875rem;
-        padding: 0.4rem;
-    }
-
-    .info {
-        font-size: 0.9rem;
-    }
-}
-
-/* Smartphones (max-width: 480px) */
-@media (max-width: 480px) {
-    .tile {
-        height: auto; /* Automatische Höhe für kleine Bildschirme */
-        padding: 0.5rem; /* Weniger Innenabstand */
-    }
-
-    .bild {
-        width: 80%; /* Kleinere Breite für Bilder */
-    }
-
-    .name {
-        font-size: 0.875rem;
-        padding: 0.3rem;
-        margin-bottom: 0.4rem;
-    }
-
-    .nameB {
-        font-size: 0.75rem;
-        padding: 0.3rem;
-        margin-bottom: 0.2rem;
-    }
-
-    .info {
-        font-size: 0.8rem;
-    }
-}

@@ -8,6 +8,7 @@
     background-color: #f9f9f9;
     color: #333;
     text-align: center; /* Zentriert den Text */
+    height: 100%;
 }
 
 /* Überschrift */
@@ -51,5 +52,7 @@ footer {
     justify-content: space-between;
     padding: 1rem 2rem;
     position: relative;
+    width: 100%; /* Passt sich der Breite an */
+    flex-shrink: 0; /* Footer bleibt an seinem Platz, ohne sich zu verkleinern */
 }
 

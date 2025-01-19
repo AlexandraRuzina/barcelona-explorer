@@ -40,6 +40,7 @@
     flex-direction: column;
     gap: 1rem;
     align-items: center;
+    margin-top: auto;
 }
 
 .filter-categorySide label {
@@ -76,6 +77,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    margin-top: auto;
 }
 
 /* Range Input Styling */
@@ -124,12 +126,18 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* Media Queries */
-@media (max-width: 1200px) {
-    .sidebar {
-        width: 280px;
-        left: -300px;
-    }
-}
+/*@media (min-width: 1300px) {*/
+/*    .sidebar {*/
+/*        width: 280px;*/
+/*        left: -300px;*/
+/*    }*/
+/*    .filter-categorySide {*/
+/*        margin-top: 2rem;*/
+/*    }*/
+/*    .slider-container {*/
+/*        margin-top: 2rem;*/
+/*    }*/
+/*}*/
 
 @media (max-width: 768px) {
     .sidebar {
