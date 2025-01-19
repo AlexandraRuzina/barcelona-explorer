@@ -17,7 +17,7 @@ main h1 {
 .boxNewSpot {
     width: 100%;
     max-width: 62.5rem;
-    min-width: 62.5rem; /* Add this to force initial width */
+    min-width: 62.5rem;
     background-color: #F0DFD0;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     display: flex;
@@ -40,8 +40,8 @@ main h1 {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    gap: 1.25rem; /* Abstand zwischen Spalten in rem (20px = 1.25rem) */
-    margin-bottom: 1.25rem; /* Abstand nach unten in rem (20px = 1.25rem) */
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
 }
 
 .form-column {

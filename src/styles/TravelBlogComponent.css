@@ -1,7 +1,10 @@
 .VisitTableMain {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Stellt sicher, dass der Footer am unteren Rand bleibt */
+    max-height: 100vh;
+    min-height: 100vh;
+    max-width: 100%;
+    min-width: 100%;
 }
 
 .VisitTableMain > div {
@@ -9,8 +12,15 @@
 }
 
 .abstandHeader {
-    margin-top: 3%;
+    margin-top: 6%;
     margin-left: -25%;
+}
+
+.table-form-container{
+    max-width: 100%;
+    max-height: 60vh; /* Maximale Höhe: 60% der Viewport-Höhe */
+    min-width: 100%;
+    min-height: 60vh;
 }
 
 /* Tabelle zentrieren und weniger breit machen */

@@ -178,3 +178,12 @@ td:last-child, td:nth-last-child(2) {
         padding: 0.5rem 1rem;
     }
 }
+
+footer {
+    background-color: #fce5d8;
+    color: #5a4a3b;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    position: relative;
+}

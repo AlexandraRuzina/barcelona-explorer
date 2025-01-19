@@ -1,10 +1,11 @@
 .tile {
     width: 20vw;
-    height: 68vh;
+    height: 74vh;
     background-color: #F0DFD0;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin: 25px;
+
 }
 
 .bild {
@@ -19,6 +20,7 @@
     border: 0.125rem solid #696969;
 }
 
+
 .name {
     width: 100%;
     text-align: center;
@@ -26,11 +28,19 @@
     font-weight: bold;
     color: #333333;
     padding: 0.5rem;
+    margin-top: 1rem; /* Abstand über dem Namen */
     margin-bottom: 0.5rem;
     background-color: #E8CFC1;
     border-radius: 0 0 0.625rem 0.625rem;
     box-shadow: inset 0 -1px 3px rgba(0, 0, 0, 0.1);
 }
+
+.info {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 0.5rem; /* Abstand über der Info */
+}
+
 
 .nameB {
     width: 100%;
@@ -45,38 +55,49 @@
     box-shadow: inset 0 -1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.info {
-    text-align: center;
-    font-size: 1rem;
-}
-
-
 @media (max-width: 768px) {
+    .tile {
+        height: 60vh; /* Kleinere Höhe für Tablets */
+    }
+
     .name {
         font-size: 1rem;
         padding: 0.4rem;
     }
+
     .nameB {
         font-size: 0.875rem;
         padding: 0.4rem;
     }
+
     .info {
         font-size: 0.9rem;
     }
 }
 
-
+/* Smartphones (max-width: 480px) */
 @media (max-width: 480px) {
+    .tile {
+        height: auto; /* Automatische Höhe für kleine Bildschirme */
+        padding: 0.5rem; /* Weniger Innenabstand */
+    }
+
+    .bild {
+        width: 80%; /* Kleinere Breite für Bilder */
+    }
+
     .name {
         font-size: 0.875rem;
         padding: 0.3rem;
         margin-bottom: 0.4rem;
     }
+
     .nameB {
         font-size: 0.75rem;
         padding: 0.3rem;
         margin-bottom: 0.2rem;
     }
+
     .info {
         font-size: 0.8rem;
     }
