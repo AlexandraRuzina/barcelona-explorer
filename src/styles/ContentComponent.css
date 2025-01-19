@@ -55,6 +55,33 @@
     box-shadow: inset 0 -1px 3px rgba(0, 0, 0, 0.1);
 }
 
+@media (min-width: 1400px) {
+    .tile {
+        height: 80vh;; /* Größere Höhe für größere Bildschirme */
+        width: 25vw;
+    }
+
+    .name {
+        font-size: 1.25rem; /* Größere Schriftgröße */
+        padding: 0.6rem; /* Mehr Padding */
+    }
+
+    .nameB {
+        font-size: 1.125rem; /* Größere Schriftgröße für zusätzliche Beschriftungen */
+        padding: 0.6rem;
+    }
+
+    .info {
+        font-size: 1.1rem; /* Größere Schriftgröße für Info */
+    }
+
+    .bild {
+        width: 90%; /* Größeres Bild innerhalb der Kachel */
+        height: auto; /* Dynamische Höhe für das Bild */
+    }
+}
+
+
 @media (max-width: 768px) {
     .tile {
         height: 60vh; /* Kleinere Höhe für Tablets */
