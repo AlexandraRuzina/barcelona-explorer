@@ -129,12 +129,18 @@ input[type="range"]::-moz-range-thumb {
 
 /* Media Queries */
 @media (min-height: 700px) {
+    .sidebar h2 {
+        text-align: center;
+        padding: 2rem 0;
+        margin: auto;
+    }
+
     .filter-categorySide label {
-        font-size: 1.4rem;
+        font-size: 1.25rem;
         font-weight: 600;
         color: #333;
         text-align: center;
-        padding: 2rem;
+        padding: 1.5rem;
 
     }
 }
