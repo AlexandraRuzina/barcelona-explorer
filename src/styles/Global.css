@@ -5,8 +5,25 @@
     overscroll-behavior: none;
 }
 
-#root {
+button {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Zuerst stellen wir sicher, dass HTML und Body die volle Höhe einnehmen */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Root-Element oder App-Container (z.B. #root oder .App) */
+#root, .App {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-color: #f9f9f9;
     color: #1f2328;
     font-size: 16px;
@@ -17,9 +34,35 @@
     font-style: normal;
 }
 
-button {
-    font-family: "Playfair Display", serif;
-    font-optical-sizing: auto;
-    font-weight: normal;
-    font-style: normal;
+/* Hauptinhalt sollte flexibel wachsen */
+main {
+    flex: 1 0 auto;
+    min-height: 0;
+}
+
+/* Footer Styling */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #ffe8cc;
+    border-top-left-radius: 4.375rem;
+    width: 100%;
+    flex-shrink: 0; /* Verhindert, dass der Footer schrumpft */
+}
+
+.footer-section p {
+    text-decoration: underline;
+    color: #333333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+    margin: 0.5rem 1rem;
+}
+
+.footer-section p:active,
+.footer-section p:focus {
+    color: #222222;
+    outline: none;
 }

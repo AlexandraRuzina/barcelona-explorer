@@ -1,6 +1,6 @@
 .tile {
     width: 20vw;
-    height: 75vh;
+    height: 68vh;
     background-color: #F0DFD0;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -8,7 +8,7 @@
 }
 
 .bild {
-    width: 80%;
+    width: 85%;
     height: 60%;
     border-radius: 0.625rem;
     display: flex;
@@ -48,4 +48,36 @@
 .info {
     text-align: center;
     font-size: 1rem;
+}
+
+
+@media (max-width: 768px) {
+    .name {
+        font-size: 1rem;
+        padding: 0.4rem;
+    }
+    .nameB {
+        font-size: 0.875rem;
+        padding: 0.4rem;
+    }
+    .info {
+        font-size: 0.9rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .name {
+        font-size: 0.875rem;
+        padding: 0.3rem;
+        margin-bottom: 0.4rem;
+    }
+    .nameB {
+        font-size: 0.75rem;
+        padding: 0.3rem;
+        margin-bottom: 0.2rem;
+    }
+    .info {
+        font-size: 0.8rem;
+    }
 }

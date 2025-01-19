@@ -10,3 +10,24 @@
     position: relative;
 }
 
+
+@media (max-width: 768px) {
+    .content {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .content {
+        flex-direction: column;
+        padding: 0.75rem;
+        overflow-y: visible;
+    }
+}
+
+

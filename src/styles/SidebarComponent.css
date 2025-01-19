@@ -1,42 +1,51 @@
 .sidebar {
-    width: 17.5rem;
+    width: 17rem;
     background-color: #E0CFC0;
     position: fixed;
-    left: -17.5rem;
-    top: 0;
-    height: 100vh;
+    left: -18rem;
+    top: 8rem;
+    height: calc(100vh - 8rem);
     transition: left 0.3s ease;
     padding: 1rem;
     border-top-right-radius: 1.25rem;
     border-bottom-right-radius: 1.25rem;
     z-index: 1000;
     border: 0.125rem solid #696969;
-    margin-top: 8.125rem;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .sidebar.active {
-    left: 0;
+    left: 0; /* Sidebar wird sichtbar */
 }
 
+/* Überschriften */
 .sidebar h2 {
-    margin-top: 0;
-    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 .sidebar h3 {
+    font-size: 1.25rem; /* Standardgröße */
     margin-bottom: 1rem;
+    text-align: center; /* Zentrierte Überschrift */
 }
 
+/* Filter-Formular */
 .filter-form {
     display: flex;
     flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
 }
 
 .filter-categorySide {
     display: flex;
     flex-direction: column;
-    gap: 0.625rem;
+    gap: 1rem;
 }
 
 .filter-categorySide label {
@@ -47,9 +56,8 @@
 }
 
 .filter-categorySide select {
-    margin-left: 1.125rem;
-    margin-top: 1.25rem;
-    width: 12.5rem;
+    margin: 0 auto; /* Zentrierte Dropdown-Liste */
+    width: 12rem; /* Reduzierte Breite */
     padding: 0.625rem;
     font-size: 1rem;
     font-family: "Playfair Display", serif;
@@ -69,51 +77,45 @@
     background-size: 1rem;
 }
 
-.filter-categorySide {
-    position: relative;
-}
-
 .filter-categorySide select option {
     background-color: #fff;
     color: #333;
 }
 
+/* Slider */
 .slider-container {
     display: flex;
     align-items: center;
-    margin-top: 5rem;
 }
 
+/* Submit-Button */
 .submit-button {
     background-color: #C6B3A3;
     color: black;
-    padding: 0.625rem 1.25rem;
-    margin: 1.25rem;
-    margin-top: 3.125rem;
+    padding: 0.625rem 3.25rem;
     border: none;
     border-radius: 0.3125rem;
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s;
+    align-self: center; /* Zentriert den Button */
+    margin-top: 1rem;
 }
 
 .submit-button:hover {
     background-color: #AD9A8B;
 }
 
+/* Input Range */
 input[type="range"] {
-    margin: 0 0.625rem;
-    -webkit-appearance: none;
-    appearance: none;
-    width: 18.75rem;
+    width: 80%; /* Dynamische Breite für Slider */
     height: 0.3125rem;
     background: #ddd;
     border-radius: 0.3125rem;
+    margin: 0 auto; /* Zentrierter Slider */
 }
 
 input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
     width: 0.9375rem;
     height: 0.9375rem;
     background: #C6B3A3;
@@ -128,3 +130,51 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 50%;
     cursor: pointer;
 }
+
+/* Media Queries */
+
+/* Große Bildschirme (ab 1200px) */
+@media (min-width: 1200px) {
+    .sidebar {
+        width: 17rem; /* Breitere Sidebar */
+    }
+}
+
+/* Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 14rem; /* Kleinere Sidebar */
+        padding: 0.8rem; /* Weniger Padding */
+    }
+
+    .filter-categorySide select {
+        width: 10rem; /* Kleinere Select-Box */
+    }
+
+    .submit-button {
+        font-size: 0.9rem; /* Kleinere Schriftgröße */
+    }
+}
+
+/* Smartphones (max-width: 480px) */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 12rem; /* Noch schmalere Sidebar */
+        padding: 0.5rem; /* Weniger Padding */
+    }
+
+    .filter-form {
+        gap: 1rem; /* Kleinere Abstände zwischen Elementen */
+    }
+
+    .filter-categorySide select {
+        width: 8rem; /* Kleinere Select-Box */
+    }
+
+    .submit-button {
+        font-size: 0.8rem; /* Noch kleinere Schriftgröße */
+        padding: 0.5rem 1rem; /* Weniger Padding */
+    }
+}
+
+

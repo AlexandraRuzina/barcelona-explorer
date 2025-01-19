@@ -26,12 +26,10 @@ export default function CategoriesComponent() {
     }
 
     return (
-        <main>
-            <div>
-                <div>
-                    <h1>Categories</h1>
-                </div>
-                <table>
+        <main className="categories-body">
+            <h1>Categories</h1>
+            <div className="table-container">
+                <table className="tab-categories">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -42,13 +40,14 @@ export default function CategoriesComponent() {
                     </tr>
                     </thead>
                     <tbody>
-                        {categories.map((category, index)  => (
-                            <CategoryRowComponent
-                                index={index}
-                                category={category.name}
-                                count={category.count}
-                            />
-                        ))}
+                    {categories.map((category, index) => (
+                        <CategoryRowComponent
+                            key={index}
+                            index={index}
+                            category={category.name}
+                            count={category.count}
+                        />
+                    ))}
                     </tbody>
                 </table>
             </div>
