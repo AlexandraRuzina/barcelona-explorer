@@ -11,9 +11,21 @@ export default function CategoriesComponent() {
     useEffect(() => {
         const loadCategories = async () => {
             try {
-                const data = await fetchCategories(); // API-Aufruf
-                setCategories(data);
-                console.log(categories)
+                // Cache öffnen
+                const cache = await caches.open("categories-cache-v1");
+                const cachedResponse = await cache.match("/categories/allCategories");
+
+                if (cachedResponse) {
+                    console.log("Kategorien aus Cache geladen");
+                    const cachedData = await cachedResponse.json();
+                    setCategories(cachedData);
+                } else {
+                    const data = await fetchCategories(); // API-Aufruf
+                    setCategories(data);
+                    await cache.put("/categories/allCategories", new Response(JSON.stringify(data), {
+                        headers: { "Content-Type": "application/json" }
+                    }))
+                }
             } catch (error) {
                 console.error('Fehler beim Laden der Categories:', error);
             }

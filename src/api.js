@@ -1,6 +1,7 @@
 
 const API_URL = 'https://wt-ws24-backend.onrender.com/api';
-
+//http://localhost:3001
+//https://wt-ws24-backend.onrender.com/
 export const fetchSights = async () => {
     try {
         const response = await fetch(`${API_URL}/sights/allSights`);

@@ -10,8 +10,21 @@ const MainComponent = () => {
     useEffect(() => {
         const loadSights = async () => {
             try {
-                const data = await fetchSights(); // API-Aufruf
-                setSights(data);
+                // Cache öffnen
+                const cache = await caches.open("sights-cache-v1");
+                const cachedResponse = await cache.match("/sights/allSights");
+
+                if (cachedResponse) {
+                    console.log("Daten aus Cache geladen");
+                    const cachedData = await cachedResponse.json();
+                    setSights(cachedData);
+                } else {
+                    const data = await fetchSights(); // API-Aufruf
+                    setSights(data);
+                    await cache.put("/sights/allSights", new Response(JSON.stringify(data), {
+                        headers: { "Content-Type": "application/json" }
+                    }));
+                }
             } catch (error) {
                 console.error('Fehler beim Laden der Sights:', error);
             }
