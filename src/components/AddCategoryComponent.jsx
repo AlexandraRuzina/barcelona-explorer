@@ -38,6 +38,7 @@ export default function AddCategoryComponent() {
             try {
                 setValid(true);
                 const result = await addCategory(category);
+                window.dispatchEvent(new Event('invalidate-categories-cache'));
                 setAnswer(result.value);
                 setValid(true);
                 setIsModalOpen(true);

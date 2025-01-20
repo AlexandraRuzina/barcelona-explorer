@@ -15,6 +15,7 @@ const SpotComponent = () => {
     const handleDelete = async () => {
         setIsModalOpen(false);
         const result = await deleteSight(name);
+        window.dispatchEvent(new Event('invalidate-sights-cache'));
         navigate('/')
     };
 

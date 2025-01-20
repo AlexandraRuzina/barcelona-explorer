@@ -10,6 +10,7 @@ const CategoryRowComponent = ({index, category, count }) => {
     const handleDelete = async () => {
         setIsModalOpen(false);
         const result = await deleteCategory(category);
+        window.dispatchEvent(new Event('invalidate-categories-cache'));
         navigate('/')
     };
 

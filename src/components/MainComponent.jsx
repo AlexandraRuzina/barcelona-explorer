@@ -8,10 +8,19 @@ const MainComponent = () => {
     const [sights, setSights] = useState([]);
 
     useEffect(() => {
-        const loadSights = async () => {
+        const loadSights = async (forceRefresh = false) => {
             try {
-                // Cache öffnen
                 const cache = await caches.open("sights-cache-v1");
+
+                if (forceRefresh) {
+                    const data = await fetchSights(); // API-Aufruf
+                    setSights(data);
+                    await cache.put("/sights/allSights", new Response(JSON.stringify(data), {
+                        headers: { "Content-Type": "application/json" }
+                    }));
+                    return;
+                }
+
                 const cachedResponse = await cache.match("/sights/allSights");
 
                 if (cachedResponse) {
@@ -29,7 +38,17 @@ const MainComponent = () => {
                 console.error('Fehler beim Laden der Sights:', error);
             }
         };
+
+        // Event-Listener für Cache-Aktualisierung
+        window.addEventListener('invalidate-sights-cache', () => loadSights(true));
+
+        // Initial laden
         loadSights();
+
+        // Cleanup beim Unmount
+        return () => {
+            window.removeEventListener('invalidate-sights-cache', () => loadSights(true));
+        };
     }, []);
     
     return (

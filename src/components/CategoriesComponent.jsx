@@ -9,10 +9,19 @@ export default function CategoriesComponent() {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        const loadCategories = async () => {
+        const loadCategories = async (forceRefresh = false) => {
             try {
-                // Cache öffnen
                 const cache = await caches.open("categories-cache-v1");
+
+                if (forceRefresh) {
+                    const data = await fetchCategories(); // API-Aufruf
+                    setCategories(data);
+                    await cache.put("/categories/allCategories", new Response(JSON.stringify(data), {
+                        headers: { "Content-Type": "application/json" }
+                    }));
+                    return;
+                }
+
                 const cachedResponse = await cache.match("/categories/allCategories");
 
                 if (cachedResponse) {
@@ -30,7 +39,16 @@ export default function CategoriesComponent() {
                 console.error('Fehler beim Laden der Categories:', error);
             }
         };
+
+        // Event-Listener für Cache-Aktualisierung
+        window.addEventListener('invalidate-categories-cache', () => loadCategories(true));
+
+        // Initial laden
         loadCategories();
+
+        return () => {
+            window.removeEventListener('invalidate-categories-cache', () => loadCategories(true));
+        };
     }, []);
 
     function addNew(){

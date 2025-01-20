@@ -59,6 +59,7 @@ export default function NewSpotComponent() {
         if (nameValid && priceValid && (pictureValid || picture==="")) {
             try {
                 const result = await addSight([name, price, selectedCategory, picture, description]);
+                window.dispatchEvent(new Event('invalidate-sights-cache'));
                 setAnswer(result.value);
                 setValid(true);
                 setIsModalOpen(true); // Modal wird nur angezeigt, wenn die Eingaben gültig sind

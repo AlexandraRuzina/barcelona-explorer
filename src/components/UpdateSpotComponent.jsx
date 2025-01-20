@@ -57,6 +57,7 @@ export default function UpdateSpotComponent() {
                 try {
                     setValid(true);
                     const result = await updateSight([name, price, selectedCategory, picture, description, sight]);
+                    window.dispatchEvent(new Event('invalidate-sights-cache'));
                     setAnswer(result.value);
                     setValid(true);
                     setIsModalOpen(true); // Modal wird nur angezeigt, wenn die Eingaben gültig sind
