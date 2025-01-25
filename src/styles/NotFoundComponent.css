@@ -2,13 +2,14 @@
 .notFound {
     display: flex;
     flex-direction: column; /* Inhalte untereinander anordnen */
-    justify-content: center; /* Zentriert den Inhalt vertikal */
+    justify-content: stretch; 
     align-items: center; /* Zentriert den Inhalt horizontal */
     min-height: 70vh; /* Nimmt 70% der Viewport-Höhe ein */
     background-color: #f9f9f9;
     color: #333;
     text-align: center; /* Zentriert den Text */
     height: 100%;
+    margin-top: 8rem;
 }
 
 /* Überschrift */
@@ -45,14 +46,4 @@ p {
     transform: translateY(0);
 }
 
-footer {
-    background-color: #fce5d8;
-    color: #5a4a3b;
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    position: relative;
-    width: 100%; /* Passt sich der Breite an */
-    flex-shrink: 0; /* Footer bleibt an seinem Platz, ohne sich zu verkleinern */
-}
 

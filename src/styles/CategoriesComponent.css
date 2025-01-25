@@ -128,7 +128,7 @@ td:last-child, td:nth-last-child(2) {
 @media (min-height: 700px) {
     .categories-body {
         padding: 2rem;
-        margin-top: 2rem;
+        margin-top: 1rem;
         margin-bottom: 5rem;
         background-color: #f9f9f9;
         width: 100%;
