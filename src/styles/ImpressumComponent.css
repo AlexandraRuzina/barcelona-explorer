@@ -37,6 +37,12 @@
 }
 
 @media (min-height: 700px) {
+    .impressum-heading {
+        text-align: left;
+        margin-bottom: 1.5rem;
+        margin-top: 3rem;
+        color: #222;
+    }
     .impressum-section {
         margin-bottom: 5rem;
     }
