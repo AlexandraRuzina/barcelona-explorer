@@ -1,13 +1,15 @@
 import '../styles/ConfirmComponent.css';
-import {addCategory, addSight} from "../api";
+import {addCategory} from "../api";
 import ConfirmModal from "./ConfirmComponent";
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
+import {useAppContext} from "../AppContext";
 
 export default function AddCategoryComponent() {
     const [category, setCategory] = useState("")
     const [answer, setAnswer] = useState("")
     const navigate = useNavigate()
+    const {addCatDropDown} = useAppContext();
     const [valid, setValid] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const handleConfirm = () => {
@@ -42,6 +44,7 @@ export default function AddCategoryComponent() {
                 setAnswer(result.value);
                 setValid(true);
                 setIsModalOpen(true);
+                addCatDropDown(category)
             } catch (error) {
                 console.error("Fehler beim Eintragen der Daten:", error);
             }
@@ -49,7 +52,7 @@ export default function AddCategoryComponent() {
     };
 
     return (
-        <main>
+        <main className="edit-categories-body">
             <div>
                 <h1>Create Category</h1>
                 <div className="box">

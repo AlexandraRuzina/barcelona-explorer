@@ -1,5 +1,5 @@
-import { createContext, useState, useContext } from "react";
-import { loginUser} from "./api";
+import {createContext, useState, useContext, useEffect} from "react";
+import {loginUser} from "./api";
 
 const AppContext = createContext()
 
@@ -9,7 +9,28 @@ export function AppProvider({ children }) {
     const [sidebarStatus, setSidebarStatus] = useState(false)
     const[isAuthenticated, setAuthenticated] = useState(false)
     const[username, setUsername] = useState(null)
-    const valueToBeShared = {isAuthenticated, login, logout, username, sidebarStatus, setSidebarStatus}
+    const [categories, setCategories] = useState([]);
+    const valueToBeShared = {isAuthenticated, login, logout, username, sidebarStatus, setSidebarStatus, categories, setCategories, deleteCatDropDown, updateCatDropDown, addCatDropDown}
+
+    function deleteCatDropDown(catName) {
+        setCategories((prevCategories) =>
+            prevCategories.filter((category) => category.name !== catName)
+        );
+    }
+
+    function updateCatDropDown(oldName, newName) {
+        setCategories((prevCategories) =>
+            prevCategories.map((category) =>
+                category.name === oldName ? { ...category, name: newName } : category
+            )
+        );
+    }
+
+    function addCatDropDown(newCategory) {
+        setCategories((prevCategories) =>
+            [...prevCategories, { name: newCategory }]
+        );
+    }
 
     async function login(loginData){
         try{

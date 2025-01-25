@@ -1,37 +1,38 @@
+
 .VisitTableMain {
-    display: flex;
+    display: block;
     flex-direction: column;
     max-height: 100vh;
     min-height: 100vh;
-    max-width: 100%;
-    min-width: 100%;
+    max-width: 90%;
+    min-width: 90%;
+    flex: 1;
+    margin-top: 1.5rem;
 }
 
-.VisitTableMain > div {
-    flex: 1; /* Füllt den verfügbaren Platz aus */
-}
-
+/* Header-Abstand */
 .abstandHeader {
-    margin-top: 6%;
-    margin-left: -25%;
+    margin-top: 5%;
+    margin-left: 5%;
 }
 
-.table-form-container{
-    max-width: 100%;
-    max-height: 60vh; /* Maximale Höhe: 60% der Viewport-Höhe */
-    min-width: 100%;
-    min-height: 60vh;
+.table-form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    max-height: 60vh;
 }
 
-/* Tabelle zentrieren und weniger breit machen */
+
 .VisitTable {
-    width: 100%;
-    margin-top: -5%;
-    margin-left: 2vw;
+    width: 80%;
+    height: 60%;
+    overflow-y: auto;
     border-collapse: collapse;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
-    overflow: hidden;
+    margin-left: 1rem;
 }
 
 /* Überschrift der Tabelle */
@@ -45,7 +46,7 @@
 
 /* Tabellenzeilen und Zellen */
 .VisitTable tbody tr {
-    border-bottom: 0.0625rem solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
 }
 
 .VisitTable tbody td {
@@ -55,6 +56,7 @@
     vertical-align: middle;
 }
 
+/* Buttons in der Tabelle */
 .hackenbtn {
     display: inline-flex;
     justify-content: center;
@@ -73,29 +75,21 @@
     transform: scale(1.1);
 }
 
-/* Container für Tabelle und Formular */
-.table-form-container {
+/* Dropdown-Liste und Button */
+.sightsDropdown {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20%;
+    flex-direction: row; /* Dropdown und Button nebeneinander */
+    align-items: center; /* Vertikale Ausrichtung */
+    gap: 1rem;
 }
 
-/* Formular-Styling anpassen */
-.select-spot {
-    display: flex;
-    flex-direction: column;
-    margin-top: -5%;
-    margin-right: -55%;
-}
-
+/* Dropdown-Styling */
 .sightsDropdown select {
-    margin-left: 1.125rem;
-    width: 90%;
+    width: 300px;
     padding: 0.625rem;
     font-size: 1rem;
     font-family: "Playfair Display", serif;
-    border: 0.0625rem solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 0.3125rem;
     background-color: #A5927F;
     color: white;
@@ -106,7 +100,7 @@
 
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='24px' height='24px'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 0.9375rem center;
+    background-position: right 0.75rem center;
     background-size: 1rem;
 }
 
@@ -114,49 +108,13 @@
     outline: none;
 }
 
-/* Optionsliste anpassen */
-.sightsDropdown select option {
-    background-color: #fff;
-    color: #333;
-    padding: 0.5rem;
-}
-
-/* Container für Dropdown und Button */
-.sightsDropdown {
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-    position: relative;
-}
-
-/* Dropdown-Styling anpassen */
-.sightsDropdown select {
-    margin: 0;
-    padding: 0.625rem;
-    font-size: 1rem;
-    font-family: "Playfair Display", serif;
-    border: 0.0625rem solid #ccc;
-    border-radius: 0.3125rem;
-    background-color: #A5927F;
-    color: white;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='24px' height='24px'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.9375rem center;
-    background-size: 1rem;
-}
-
-/* Button direkt neben Dropdown */
+/* Button rechts neben dem Dropdown */
 .sightsDropdown .check-button-travel {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 1.875rem;
-    height: 1.875rem;
+    width: 2.5rem; /* Kleinere Größe des Buttons */
+    height: 2.5rem;
     font-size: 1rem;
     font-weight: bold;
     color: white;
@@ -170,19 +128,8 @@
 
 .sightsDropdown .check-button-travel:hover {
     transform: scale(1.1);
+    background-color: #b39a86;
 }
-
-/* Footer bleibt am unteren Rand */
-footer {
-    background-color: #fce5d8;
-    color: #5a4a3b;
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    position: relative;
-}
-
-
 
 
 

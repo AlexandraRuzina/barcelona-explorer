@@ -9,7 +9,7 @@ export default function NewSpotComponent() {
     const [answer, setAnswer] = useState("")
     const [name, setName] = useState("");
     const [price, setPrice] = useState("0");
-    const [selectedCategory, setSelectedCategory] = useState("All");
+    const [selectedCategory, setSelectedCategory] = useState("");
     const [picture, setPicture] = useState("");
     const [description, setDescription] = useState("");
 
@@ -83,7 +83,7 @@ export default function NewSpotComponent() {
                                     className="input"
                                     name="name"
                                     type="text"
-                                    minlength="3"
+                                    minLength="3"
                                     maxLength="75"
                                     required
                                     pattern="^[a-zA-ZáéíóúüñïçÁÉÍÓÚÜÑàèìòùÀÈÌÒÙ\s’]+$"
@@ -113,9 +113,10 @@ export default function NewSpotComponent() {
                                     id="category-select"
                                     name="category"
                                     className="input"
+                                    required
                                     value={selectedCategory} // Korrekte Bindung an den Zustand
                                     onChange={(e) => setSelectedCategory(e.target.value)}>
-                                    <option value="All" disabled selected>Add Category</option>
+                                    <option value="" disabled>Add Category</option>
                                     {categories.map((category, index) => (
                                         <option key={index} value={category.name}>
                                             {category.name}

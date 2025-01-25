@@ -5,12 +5,11 @@ import {useNavigate} from "react-router-dom";
 import {useAppContext} from "../AppContext";
 
 export default function SidebarComponent() {
-    const { sidebarStatus } = useAppContext();
+    const { sidebarStatus, categories, setCategories } = useAppContext();
     const navigate = useNavigate()
     const [answer, setAnswer] = useState();
-    const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('All'); // Speichert die ausgewählte Kategorie
-    const [selectedPrice, setSelectedPrice] = useState(50); // Speichert den ausgewählten Preis
+    const [selectedPrice, setSelectedPrice] = useState(50);
 
     useEffect(() => {
         const loadSights = async () => {

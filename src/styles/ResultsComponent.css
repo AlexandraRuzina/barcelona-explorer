@@ -1,3 +1,36 @@
-h1{
-    margin-top: 1.25rem;
+.search-Results{
+    margin-top: 3.5rem;
 }
+
+.content-result {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1.25rem;
+    overflow-y: auto;
+    position: relative;
+    margin-top: 1rem;
+}
+
+
+@media (max-width: 768px) {
+    .content-result {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .content-result {
+        flex-direction: column;
+        padding: 0.75rem;
+        overflow-y: visible;
+    }
+}
+

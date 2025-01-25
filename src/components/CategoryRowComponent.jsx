@@ -2,15 +2,18 @@ import {useNavigate} from "react-router-dom";
 import DeleteModal from "./DeleteComponent";
 import {useState} from "react";
 import {deleteCategory} from "../api";
+import {useAppContext} from "../AppContext";
 
 const CategoryRowComponent = ({index, category, count }) => {
     const navigate = useNavigate();
+    const {deleteCatDropDown} = useAppContext();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleDelete = async () => {
         setIsModalOpen(false);
         const result = await deleteCategory(category);
         window.dispatchEvent(new Event('invalidate-categories-cache'));
+        deleteCatDropDown(category)
         navigate('/')
     };
 

@@ -3,9 +3,11 @@ import {useLocation, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {updateCategory} from "../api";
 import ConfirmModal from "./ConfirmComponent";
+import {useAppContext} from "../AppContext";
 
 export default function EditCategoryComponent() {
     const location = useLocation();
+    const { updateCatDropDown} = useAppContext();
     const [change, setChange] = useState(false)
     const {category: initialCategory,} = location.state || {};
     const [category, setCategory] = useState(initialCategory || "");
@@ -47,6 +49,7 @@ export default function EditCategoryComponent() {
                     setAnswer(result.value);
                     setValid(true);
                     setIsModalOpen(true);
+                    updateCatDropDown(old, category)
                 } catch (error) {
                     console.error("Fehler beim Updaten der Daten:", error);
                 }
@@ -55,7 +58,7 @@ export default function EditCategoryComponent() {
     };
 
     return (
-        <main>
+        <main className="edit-categories-body">
             <div>
                 <h1>Update Category Name</h1>
                 <div className="box">

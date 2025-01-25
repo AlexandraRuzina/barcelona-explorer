@@ -129,6 +129,26 @@ input[type="range"]::-moz-range-thumb {
 
 /* Media Queries */
 @media (min-height: 700px) {
+
+    .sidebar {
+        width: 3250px;
+        background-color: #E0CFC0;
+        position: fixed;
+        left: -345px; /* Etwas mehr als die Breite */
+        top: 8rem;
+        height: calc(100vh - 8rem);
+        transition: left 0.3s ease;
+        padding: 1.5rem;
+        border-top-right-radius: 1.25rem;
+        border-bottom-right-radius: 1.25rem;
+        z-index: 1000;
+        border: 0.125rem solid #696969;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
     .sidebar h2 {
         text-align: center;
         padding: 2rem 0;

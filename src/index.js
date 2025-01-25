@@ -22,10 +22,35 @@ if ("serviceWorker" in navigator) {
             .register("/serviceWorker.js")
             .then((registration) => {
                 console.log("Service Worker registriert:", registration);
+
+                // Beispiel: Nachricht senden, nachdem der Service Worker registriert wurde
+                if (navigator.serviceWorker.controller) {
+                    console.log("Service Worker Controller gefunden.");
+                } else {
+                    console.log("Kein aktiver Controller. Service Worker übernimmt beim nächsten Reload.");
+                }
             })
             .catch((error) => {
                 console.error("Service Worker Registrierung fehlgeschlagen:", error);
             });
     });
 }
+
+// Funktion zum Senden von Nachrichten an den Service Worker
+export const sendMessageToServiceWorker = (message) => {
+    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+        navigator.serviceWorker.controller.postMessage(message);
+    } else {
+        console.error("Kein aktiver Service Worker Controller gefunden.");
+    }
+};
+
+// Beispiel: Cache löschen
+export const deleteCacheEntry = (key, cacheName) => {
+    sendMessageToServiceWorker({
+        action: "deleteCacheEntry",
+        key,
+        cacheName,
+    });
+};
 

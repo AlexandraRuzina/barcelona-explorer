@@ -13,40 +13,93 @@ export default function TravelBlogComponent() {
     const navigate = useNavigate();
     const [visited, setVisited] = useState([]);
     const [spots, setSpots] = useState([]);
-    const [selectedSpot, setSelectedSpot] = useState('All');
+    const [selectedSpot, setSelectedSpot] = useState('');
     const { username } = useAppContext();
 
     useEffect(() => {
-        const loadVisitedSpots = async () => {
+        const loadVisitedSpots = async (forceRefresh = false) => {
             try {
-                const data = await fetchVisitedSpots(username);
-                const spots = data.rows.map(row => row.Spot); // Daten aus "rows" extrahieren
-                setVisited(spots); // Zustand aktualisieren
+                const cache = await caches.open("visited-spots-cache-v1");
+
+                if (forceRefresh) {
+                    // API-Aufruf, um Datenbank erneut abzufragen
+                    const data = await fetchVisitedSpots(username); // API-Aufruf
+                    const spots = data.rows.map((row) => row.Spot);
+                    setVisited(spots);
+
+                    // Cache aktualisieren
+                    await cache.put(
+                        "/user/visited",
+                        new Response(JSON.stringify(spots), {
+                            headers: { "Content-Type": "application/json" },
+                        })
+                    );
+                    return;
+                }
+
+                // Prüfen, ob Daten im Cache vorhanden sind
+                const cachedResponse = await cache.match("/user/visited");
+
+                if (cachedResponse) {
+                    console.log("Visited Spots aus Cache geladen");
+                    const cachedData = await cachedResponse.json();
+                    setVisited(cachedData);
+                } else {
+                    // Daten aus der API laden und im Cache speichern
+                    const data = await fetchVisitedSpots(username);
+                    const spots = data.rows.map((row) => row.Spot);
+                    setVisited(spots);
+
+                    // Cache aktualisieren
+                    await cache.put(
+                        "/user/visited",
+                        new Response(JSON.stringify(spots), {
+                            headers: { "Content-Type": "application/json" },
+                        })
+                    );
+                }
             } catch (error) {
-                console.error('Fehler beim Laden der besuchten Plätze:', error);
+                console.error("Fehler beim Laden der besuchten Plätze:", error);
             }
         };
 
         const loadSights = async () => {
             try {
                 const data = await fetchSpotsDropDown(); // API-Aufruf
-                setSpots(data);
+                setSpots(data); // Direkt Zustand aktualisieren
             } catch (error) {
-                console.error('Fehler beim Laden der Kategorien:', error);
+                console.error("Fehler beim Laden der Kategorien:", error);
             }
         };
 
-        if (username) {  // Sicherstellen, dass der username vorhanden ist, bevor der API-Aufruf gemacht wird
-            loadVisitedSpots();
-            loadSights();
+        // Event-Listener für Cache-Aktualisierung
+        const handleInvalidateCache = () => {
+            loadVisitedSpots(true);
+        };
+
+        // Event-Listener hinzufügen
+        window.addEventListener("invalidate-visited-spots-cache", handleInvalidateCache);
+
+        // Initial laden
+        if (username) {
+            loadVisitedSpots(); // Mit Cache-Unterstützung
+            loadSights();       // Ohne Cache-Unterstützung
         }
-    }, [username]);  // username als Abhängigkeit hinzufügen
+
+        // Cleanup beim Entfernen des Components
+        return () => {
+            window.removeEventListener("invalidate-visited-spots-cache", handleInvalidateCache);
+        };
+    }, [username]);
+
+
 
     const handleSpotSubmit = async (event) => {
         event.preventDefault();
         try {
             const result = await addVisitedSpot([selectedSpot, username]);
             setVisited((prevVisited) => [...prevVisited, selectedSpot]);
+            window.dispatchEvent(new Event('invalidate-visited-spots-cache'));
         } catch (error) {
             console.error("Fehler beim Abrufen der Daten:", error);
         }
@@ -56,6 +109,7 @@ export default function TravelBlogComponent() {
         setVisited((prevVisited) => prevVisited.filter((v) => v !== spot));
         try {
             const result = await deleteVisited([spot, username]);
+            window.dispatchEvent(new Event('invalidate-visited-spots-cache'));
         } catch (error) {
             console.error("Fehler beim Löschen des Spots:", error);
         }
@@ -73,19 +127,25 @@ export default function TravelBlogComponent() {
                         </tr>
                         </thead>
                         <tbody>
-                        {visited.map((spot, index) => (
-                            <tr key={index}>
-                                <td>{spot}</td>
-                                <td>
-                                    <button
-                                        className="hackenbtn"
-                                        onClick={() => alreadyVisited(spot)} // Übergibt den spezifischen Spot
-                                    >
-                                        ✓
-                                    </button>
-                                </td>
+                        {visited.length === 0 ? (
+                            <tr>
+                                <td colSpan="2" style={{textAlign: "center"}}>No Entries</td>
                             </tr>
-                        ))}
+                        ) : (
+                            visited.map((spot, index) => (
+                                <tr key={index}>
+                                    <td>{spot}</td>
+                                    <td>
+                                        <button
+                                            className="hackenbtn"
+                                            onClick={() => alreadyVisited(spot)} // Übergibt den spezifischen Spot
+                                        >
+                                            ✓
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))
+                        )}
                         </tbody>
                     </table>
                     <form className="select-spot" onSubmit={handleSpotSubmit}>
@@ -93,10 +153,11 @@ export default function TravelBlogComponent() {
                             <select
                                 id="spot-select"
                                 name="spot"
+                                required
                                 value={selectedSpot}
                                 onChange={(e) => setSelectedSpot(e.target.value)}
                             >
-                                <option value="All">Add Spot</option>
+                                <option value="" disabled>Add Spot</option>
                                 {spots.map((spot, index) => (
                                     <option key={index} value={spot.name}>
                                         {spot.name}

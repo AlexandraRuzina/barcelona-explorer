@@ -2,6 +2,7 @@ import { useState } from 'react'
 import '../styles/LoginCompotent.css';
 import {useNavigate} from "react-router-dom";
 import { useAppContext } from "../AppContext";
+import {deleteCacheEntry} from "../index";
 
 export default function LoginComponent(){
     const { login } = useAppContext();
@@ -20,6 +21,7 @@ export default function LoginComponent(){
         try {
             const result = await login([username, password]);
             if (result.success){
+                deleteCacheEntry("/user/visited", "visited-spots-cache-v1")
                 navigate(`/`)
             }
             else{

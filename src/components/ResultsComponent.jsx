@@ -8,8 +8,8 @@ function ResultsComponent() {
 
     return (
         <div>
-            <h1>Search Results</h1>
-                <main className="content">
+            <h1 className="search-Results">Search Results</h1>
+                <main className="content-result">
                     {answer.map((sight, index)  => (
                         <ContentComponent
                             key={index}
