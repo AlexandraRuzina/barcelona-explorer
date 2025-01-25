@@ -125,6 +125,22 @@ td:last-child, td:nth-last-child(2) {
     transform: translateY(0);
 }
 
+@media (min-height: 700px) {
+    .categories-body {
+        padding: 2rem;
+        margin-top: 3.5rem;
+        margin-bottom: 5rem;
+        background-color: #f9f9f9;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+
+    }
+}
+
 /* Media Queries */
 @media (min-width: 1400px) {
     .table-container {
