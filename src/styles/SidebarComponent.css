@@ -2,7 +2,7 @@
     width: 300px;
     background-color: #E0CFC0;
     position: fixed;
-    left: -320px; /* Etwas mehr als die Breite */
+    left: -320px;
     top: 8rem;
     height: calc(100vh - 8rem);
     transition: left 0.3s ease;
@@ -135,7 +135,7 @@ input[type="range"]::-moz-range-thumb {
         background-color: #E0CFC0;
         position: fixed;
         left: -345px; /* Etwas mehr als die Breite */
-        top: 8rem;
+        top: 8.5rem;
         height: calc(100vh - 8rem);
         transition: left 0.3s ease;
         padding: 1.5rem;

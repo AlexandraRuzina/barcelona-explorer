@@ -7,7 +7,7 @@ import {useAppContext} from "../AppContext";
 
 export default function EditCategoryComponent() {
     const location = useLocation();
-    const { updateCatDropDown} = useAppContext();
+    const { updateCatDropDown, updateCatTable} = useAppContext();
     const [change, setChange] = useState(false)
     const {category: initialCategory,} = location.state || {};
     const [category, setCategory] = useState(initialCategory || "");
@@ -46,10 +46,12 @@ export default function EditCategoryComponent() {
                     setValid(true);
                     const result = await updateCategory([category, old]);
                     window.dispatchEvent(new Event('invalidate-categories-cache'));
+                    window.dispatchEvent(new Event('invalidate-sights-cache'));
                     setAnswer(result.value);
                     setValid(true);
                     setIsModalOpen(true);
                     updateCatDropDown(old, category)
+                    updateCatTable(old, category)
                 } catch (error) {
                     console.error("Fehler beim Updaten der Daten:", error);
                 }

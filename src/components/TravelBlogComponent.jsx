@@ -129,7 +129,7 @@ export default function TravelBlogComponent() {
                         <tbody>
                         {visited.length === 0 ? (
                             <tr>
-                                <td colSpan="2" style={{textAlign: "center"}}>No Entries</td>
+                                <td colSpan="2">No Entries</td>
                             </tr>
                         ) : (
                             visited.map((spot, index) => (

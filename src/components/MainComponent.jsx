@@ -3,9 +3,10 @@ import '../styles/MainComponent.css';
 
 import { fetchSights } from '../api';
 import {useEffect, useState} from "react";
+import {useAppContext} from "../AppContext";
 
 const MainComponent = () => {
-    const [sights, setSights] = useState([]);
+    const {sights, setSights} = useAppContext();
 
     useEffect(() => {
         const loadSights = async (forceRefresh = false) => {

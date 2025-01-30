@@ -13,6 +13,7 @@ const CategoryRowComponent = ({index, category, count }) => {
         setIsModalOpen(false);
         const result = await deleteCategory(category);
         window.dispatchEvent(new Event('invalidate-categories-cache'));
+        window.dispatchEvent(new Event('invalidate-sights-cache'));
         deleteCatDropDown(category)
         navigate('/')
     };

@@ -31,14 +31,14 @@ p {
     background-color: #A5927F;
     color: white;
     border: none;
-    border-radius: 0.3125rem; /* Abrundung in rem (5px = 0.3125rem) */
+    border-radius: 0.3125rem;
     cursor: pointer;
 }
 
 /* Hover-Effekt für den Button */
 .ReturnBtn:hover {
     background-color: #957A6B;
-    transform: translateY(-0.0625rem); /* Verschiebung beim Hover in rem (1px = 0.0625rem) */
+    transform: translateY(-0.0625rem);
 }
 
 /* Aktiv-Zustand für den Button */
@@ -48,7 +48,7 @@ p {
 
 @media (min-height: 700px) {
     .notFound h1 {
-        font-size: 2.5rem; /* Schriftgröße in rem */
+        font-size: 2.5rem;
         color: #957A6B;
         margin-top: 3rem;
     }

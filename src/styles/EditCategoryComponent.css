@@ -1,11 +1,11 @@
 .edit-categories-body{
-    margin-top: 3.5rem;
+    margin-top: 4.5rem;
 }
 
 .box {
     margin-top: 2rem;
     margin-left: -3.5rem;
-    margin-bottom: 5rem;
+    margin-bottom: 8rem;
     width: 120%;
     height: 40vh;
     background-color: #F0DFD0;
@@ -70,4 +70,22 @@
 
 .extraKomponente{
     font-weight: normal;
+}
+
+@media (min-height: 700px) {
+    .edit-categories-body{
+        margin-top: 5.5rem;
+    }
+    .box {
+        margin-top: 2rem;
+        margin-left: -3.5rem;
+        margin-bottom: 10rem;
+        width: 120%;
+        height: 40vh;
+        background-color: #F0DFD0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

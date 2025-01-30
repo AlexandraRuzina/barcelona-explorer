@@ -3,10 +3,11 @@ import CategoryRowComponent from "./CategoryRowComponent";
 import {useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {fetchCategories} from "../api";
+import {useAppContext} from "../AppContext";
 
 export default function CategoriesComponent() {
     const navigate = useNavigate();
-    const [categories, setCategories] = useState([]);
+    const {categoriesTable, setCategoriesTable} = useAppContext();
 
     useEffect(() => {
         const loadCategories = async (forceRefresh = false) => {
@@ -15,7 +16,7 @@ export default function CategoriesComponent() {
 
                 if (forceRefresh) {
                     const data = await fetchCategories(); // API-Aufruf
-                    setCategories(data);
+                    setCategoriesTable(data);
                     await cache.put("/categories/allCategories", new Response(JSON.stringify(data), {
                         headers: { "Content-Type": "application/json" }
                     }));
@@ -27,10 +28,10 @@ export default function CategoriesComponent() {
                 if (cachedResponse) {
                     console.log("Kategorien aus Cache geladen");
                     const cachedData = await cachedResponse.json();
-                    setCategories(cachedData);
+                    setCategoriesTable(cachedData);
                 } else {
                     const data = await fetchCategories(); // API-Aufruf
-                    setCategories(data);
+                    setCategoriesTable(data);
                     await cache.put("/categories/allCategories", new Response(JSON.stringify(data), {
                         headers: { "Content-Type": "application/json" }
                     }))
@@ -70,7 +71,7 @@ export default function CategoriesComponent() {
                     </tr>
                     </thead>
                     <tbody>
-                    {categories.map((category, index) => (
+                    {categoriesTable.map((category, index) => (
                         <CategoryRowComponent
                             key={index}
                             index={index}

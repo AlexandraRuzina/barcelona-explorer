@@ -9,8 +9,10 @@ export function AppProvider({ children }) {
     const [sidebarStatus, setSidebarStatus] = useState(false)
     const[isAuthenticated, setAuthenticated] = useState(false)
     const[username, setUsername] = useState(null)
+    const [categoriesTable, setCategoriesTable] = useState([]);
     const [categories, setCategories] = useState([]);
-    const valueToBeShared = {isAuthenticated, login, logout, username, sidebarStatus, setSidebarStatus, categories, setCategories, deleteCatDropDown, updateCatDropDown, addCatDropDown}
+    const [sights, setSights] = useState([]);
+    const valueToBeShared = {isAuthenticated, login, logout, username, sidebarStatus, setSidebarStatus, categories, setCategories, categoriesTable, setCategoriesTable,  deleteCatDropDown, updateCatDropDown, addCatDropDown, sights, setSights, updateCatTable}
 
     function deleteCatDropDown(catName) {
         setCategories((prevCategories) =>
@@ -24,6 +26,16 @@ export function AppProvider({ children }) {
                 category.name === oldName ? { ...category, name: newName } : category
             )
         );
+
+    }
+
+    function updateCatTable(oldName, newName) {
+        setCategoriesTable((prevCategories) =>
+            prevCategories.map((category) =>
+                category.name === oldName ? { ...category, name: newName } : category
+            )
+        );
+
     }
 
     function addCatDropDown(newCategory) {

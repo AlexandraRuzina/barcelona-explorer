@@ -3,6 +3,8 @@ import {addSight, fetchCategoriesDropDown, filterQuery} from '../api';
 import {useEffect, useState} from "react";
 import ConfirmModal from "./ConfirmComponent";
 import {useNavigate} from "react-router-dom";
+import {deleteCacheEntry} from "../index";
+import {useAppContext} from "../AppContext";
 
 export default function NewSpotComponent() {
     const [categories, setCategories] = useState([]);
@@ -12,6 +14,7 @@ export default function NewSpotComponent() {
     const [selectedCategory, setSelectedCategory] = useState("");
     const [picture, setPicture] = useState("");
     const [description, setDescription] = useState("");
+    const {categoriesTable, setCategoriesTable} = useAppContext();
 
     const navigate = useNavigate()
     const [valid, setValid] = useState(false);
@@ -60,6 +63,7 @@ export default function NewSpotComponent() {
             try {
                 const result = await addSight([name, price, selectedCategory, picture, description]);
                 window.dispatchEvent(new Event('invalidate-sights-cache'));
+                window.dispatchEvent(new Event('invalidate-categories-cache'));
                 setAnswer(result.value);
                 setValid(true);
                 setIsModalOpen(true); // Modal wird nur angezeigt, wenn die Eingaben gültig sind

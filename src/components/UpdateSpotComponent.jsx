@@ -3,6 +3,7 @@ import {useLocation, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {addSight, fetchCategoriesDropDown, updateSight} from "../api";
 import ConfirmModal from "./ConfirmComponent";
+import {useAppContext} from "../AppContext";
 
 export default function UpdateSpotComponent() {
     const location = useLocation();
@@ -11,6 +12,7 @@ export default function UpdateSpotComponent() {
     const [change, setChanged] = useState(false);
     const navigate = useNavigate()
     const [valid, setValid] = useState(false);
+    const {categoriesTable, setCategoriesTable} = useAppContext();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const handleConfirm = () => {
@@ -58,6 +60,7 @@ export default function UpdateSpotComponent() {
                     setValid(true);
                     const result = await updateSight([name, price, selectedCategory, picture, description, sight]);
                     window.dispatchEvent(new Event('invalidate-sights-cache'));
+                    window.dispatchEvent(new Event('invalidate-categories-cache'));
                     setAnswer(result.value);
                     setValid(true);
                     setIsModalOpen(true); // Modal wird nur angezeigt, wenn die Eingaben gültig sind

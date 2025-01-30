@@ -3,9 +3,12 @@ import {useLocation, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import DeleteModal from "./DeleteComponent";
 import {deleteSight} from "../api";
+import {useAppContext} from "../AppContext";
+import {deleteCacheEntry} from "../index";
 
 const SpotComponent = () => {
     const location = useLocation();
+    const {sights, setSights} = useAppContext();
     const navigate = useNavigate();
     const { picture, name, category, price, description } = location.state || {};
     const apiKey = process.env.REACT_APP_API_KEY;
@@ -15,7 +18,11 @@ const SpotComponent = () => {
     const handleDelete = async () => {
         setIsModalOpen(false);
         const result = await deleteSight(name);
+        setSights((prevSights) =>
+            prevSights.filter((sight) => sight.name !== name)
+        );
         window.dispatchEvent(new Event('invalidate-sights-cache'));
+        window.dispatchEvent(new Event('invalidate-categories-cache'));
         navigate('/')
     };
 
